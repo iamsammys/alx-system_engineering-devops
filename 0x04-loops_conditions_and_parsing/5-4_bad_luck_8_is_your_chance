@@ -4,13 +4,13 @@
 #+displays good luck for the 8th loop iteration
 #+displays Best School for the other iterations
 
-n=1
-while ((n <= 10));
+n=0
+while [ "$n" -lt 10 ]
 do
-	if ((n == 4));
+	if [ "$n" -eq 3 ]
 	then
 		echo "bad luck"
-	elif ((n == 8));
+	elif [ "$n" -eq 7 ]
 	then
 		echo "good luck"
 	else
