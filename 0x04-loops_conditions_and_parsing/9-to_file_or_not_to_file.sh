@@ -2,7 +2,7 @@
 # Bash script that gives you information about the school file
 
 file=school
-if [ -e "$file" ];
+if [ -e "$file" ]
 then
 	echo "school file exists"
 	if [ -s "$file" ]
