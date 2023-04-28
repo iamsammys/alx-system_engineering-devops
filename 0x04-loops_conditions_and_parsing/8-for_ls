@@ -3,5 +3,5 @@
 
 for files in *;
 do
-	echo "$files" | cut -d "-" -f 2-
+	echo "$files" | cut -d "-" -f 2
 done
