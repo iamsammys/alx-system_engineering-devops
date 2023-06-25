@@ -4,6 +4,6 @@ file_line { "key_path":
   line => "IdentityFile ~/.ssh/school"
   }
 file_line { "password":
-  path => "etc/ssh/ssh_config"
+  path => "/etc/ssh/ssh_config"
   line => "PasswordAuthentication no"
   }
