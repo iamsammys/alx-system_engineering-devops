@@ -1,2 +1,9 @@
 # puppet script to create a configuration file
-file { "/
+file_line { "key_path":
+  path => "~/.ssh/ssh_config"
+  line => "IdentityFile ~/.ssh/school"
+  }
+file_line { "password":
+  path => "~/.ssh/ssh_config"
+  line => "PasswordAuthentication no"
+  }
