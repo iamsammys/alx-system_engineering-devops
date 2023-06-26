@@ -10,4 +10,4 @@ priv_key_path=$4
 file_path=$1
 user=$3
 ip=$2
-scp -i $FLAG "$priv_key_path" "$file_path" "$user"@"$ip:~/"
+scp -i "$priv_key_path" $FLAG "$file_path" "$user"@"$ip:~/"
