@@ -1,0 +1,8 @@
+frontend http
+	bind :80    
+	mode http
+	default_backend web-backend
+backend web-backend
+	balance roundrobin    
+	server 36789-web-01 54.172.51.196    
+	server 36789-web-02 54.89.29.168
