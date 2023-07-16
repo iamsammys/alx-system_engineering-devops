@@ -3,15 +3,26 @@
 # Information about server domains
 
 check_domain() {
-    # Check for a valid domain
+    if [ $# -lt 1 ]
+    then
+        echo "Less than one"
+        exit 0
+    fi
     SUBDOMAINS=("www"  "lb-01" "web-01" "web-02")
-    if [ -z "$2" ]; then
-	for i in "${SUBDOMAINS[@]}"; do
-	    dig "$i.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, SUBDOMAIN, "."); print "The subdomain " SUBDOMAIN[1] " is a " $4 " record and points to " $5}'
-	done
+    if [ -z "$2" ]
+    then
+	for i in "${SUBDOMAINS[@]}"
+    do
+        url=$i.$1
+        record=`dig $url | grep "$1" | tail -1 | awk '{ print $4 }'`
+        ip=`dig $url | grep "$1" | tail -1 | awk '{ print $5}'`
+        echo "The subdomain $i is a $record record and points to $ip"
+    done
     else
-	dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, SUBDOMAIN, "."); print "The subdomain " SUBDOMAIN[1] " is a " $4 " record and points to " $5}'
+        url=$2.$1
+        record=`dig $url | grep "$url" | tail -1 | awk '{ print $4 }'`
+        ip=`dig $url | grep "$url" | tail -1 | awk '{ print $5}'`
+        echo "The subdomain $2 is a $record record and points to $ip"
     fi
 }
-
-check_domain "$1" "$2"
+check_domain "$@"
