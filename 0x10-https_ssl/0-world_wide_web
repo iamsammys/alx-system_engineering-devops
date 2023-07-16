@@ -3,11 +3,6 @@
 # Information about server domains
 
 check_domain() {
-    if [ $# -lt 1 ]
-    then
-        echo "Less than one"
-        exit 0
-    fi
     SUBDOMAINS=("www"  "lb-01" "web-01" "web-02")
     if [ -z "$2" ]
     then
