@@ -1,3 +1,4 @@
-sudo ufw enable 22
-sudo ufw enable 443
-sudo ufw enable 80
+sudo ufw enable
+sudo ufw enable 22/TCP
+sudo ufw enable 443/TCP
+sudo ufw enable 80/TCP
