@@ -1,0 +1,6 @@
+#!/bin/bash
+# Creates a 404 error page and configures nginx to display the error page
+
+sduo apt-get upgrade
+sudo apt-get update
+sudo apt-get install
